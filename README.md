@@ -1,0 +1,2 @@
+# CPSC312_Waypoint
+Typically, when visiting a new city, you want to visit a certain set of tour points and want to travel as efficiently as possible in various forms of transportation. You could use Google Maps, but since travelling as efficiently as possible necessitates building routes that utilize multi-modal travel (i.e. use bike, walking, bus, &amp; car routes). As a functional programming solution we developed Waypoint, a transportation routing system that was based on accommodating the transportation needs of the average Vancouver commuter.
