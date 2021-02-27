@@ -47,6 +47,11 @@ insertWeight ((NewNode name1 x1 y1),(NewNode name2 x2 y2)) = ((NewNode name1 x1 
 dist :: Double -> Double -> Double -> Double -> Double
 dist x1 y1 x2 y2 = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)
 
+getWeight :: (Node [Char] Double Double) -> (Node [Char] Double Double) -> Double
+getWeight (NewNode name1 x1 y1) (NewNode name2 x2 y2) = dist x1 y1 x2 y2
+
+closest :: (Node [Char] Double Double) -> (Graph [(Node [Char] Double Double)] [((Node [Char] Double Double), (Node [Char] Double Double), Double)]) -> (Node [Char] Double Double)
+closest (NewNode name1 x1 y1) (NewGraph nodes edges) = foldr (\ (NewNode name2 x2 y2) acc -> if ((name1/=name2) && ((getWeight (NewNode name1 x1 y1) (NewNode name2 x2 y2))<(getWeight (NewNode name1 x1 y1) acc))) then (NewNode name2 x2 y2) else acc) (NewNode "error" 2147483647 2147483647) nodes
 
 --given an address, constructs a Node including that address and its lat/lon coordinates
 data Node name x y = NewNode name x y
